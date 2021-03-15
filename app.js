@@ -1,26 +1,16 @@
-var express = require('express');
-var app = express();
+var app = require('./config/server');
 
-app.set('view engine', 'ejs');
+var routesHome = require('./app/routes/home');
+routesHome(app);
 
-app.get('/', function(req, res){
-    res.render("dashboards/createDas");
-});
+var routesLocations = require('./app/routes/locations')(app);
 
-app.get('/companies', function(req, res){
-    res.render("companies/createComp");
-});
+var routesCompanies = require('./app/routes/companies')(app);
 
-app.get('/employees', function(req, res){
-    res.render("employees/createEmp");
-});
-
-app.get('/locations', function(req, res){
-    res.render("locations/createLoc");
-});
+var routesEmployees = require('./app/routes/employees')(app);
 
 app.listen(3000, function(){
 
-    console.log("Servidor Rodando com Sucesso");
+    console.log("Servidor ON");
 
 });
