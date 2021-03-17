@@ -7,6 +7,35 @@
 	<body>
 
 		<h1>Empresas</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Nome da Empresa </th>
+				<th>Celular</th>
+				<th>Whats</th>
+				<th>Fixo</th>
+				<th>Email</th>
+				<th>ID da Cidade</th>
+				<th>ID do Estado</th>
+				<th>Endereço</th>
+			</tr>
+
+			<% for(i=0; i < companies.length;i++) { %>
+
+			<tr>
+				<td><%= companies[i].id %></td>
+				<td><%= companies[i].fantasy_name %></td>
+				<td><%= companies[i].phone_cell %></td>
+				<td><%= companies[i].phone_whats %></td>
+				<td><%= companies[i].phone_home %></td>
+				<td><%= companies[i].email %></td>
+				<td><%= companies[i].id_city %></td>
+				<td><%= companies[i].id_state %></td>
+				<td><%= companies[i].address %></td>
+			</tr>
+
+			<% } %>
+		</table>
 
 	</body>
 </html>
