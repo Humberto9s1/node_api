@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Empresa</title>
+		</head>
+	<body>
+
+		<h1>Empresa</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Nome da Empresa </th>
+				<th>Celular</th>
+				<th>Whats</th>
+				<th>Fixo</th>
+				<th>Email</th>
+				<th>ID da Cidade</th>
+				<th>ID do Estado</th>
+				<th>Endereço</th>
+			</tr>
+
+			<tr>
+				<td><%= company[0].id %></td>
+				<td><%= company[0].fantasy_name %></td>
+				<td><%= company[0].phone_cell %></td>
+				<td><%= company[0].phone_whats %></td>
+				<td><%= company[0].phone_home %></td>
+				<td><%= company[0].email %></td>
+				<td><%= company[0].id_city %></td>
+				<td><%= company[0].id_state %></td>
+				<td><%= company[0].address %></td>
+			</tr>
+
+		</table>
+
+	</body>
+</html>
