@@ -8,5 +8,9 @@ module.exports = function() {
         connection.query('select * from companies where id = 2', callback);
     };
 
+    this.companyStore = function(company, connection, callback) {
+        connection.query('insert into companies set ?', company, callback);
+    };
+
     return this;
 }
