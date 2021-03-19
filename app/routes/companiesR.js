@@ -8,9 +8,9 @@ module.exports = function(app){
         var company = req.body;
 
         var connection = app.config.dbConnection();
-        var companiesModel = app.app.models.companiesModel;
+        var companiesModel = new app.app.models.companiesDAO(connection);
     
-        companiesModel.companyStore(company, connection ,function (error, result) {
+        companiesModel.companyStore(company, function (error, result) {
             res.redirect('/companies');
         });
 

@@ -3,9 +3,9 @@ module.exports = function (app) {
     app.get('/companies', function (req, res) {
 
         var connection = app.config.dbConnection();
-        var companiesModel = app.app.models.companiesModel;
+        var companiesModel = new app.app.models.companiesDAO(connection);
 
-        companiesModel.getCompanies(connection, function (error, result) {
+        companiesModel.getCompanies(function (error, result) {
             res.render("companies/createComp", {companies : result});
         });
     });
