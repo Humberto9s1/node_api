@@ -22,19 +22,28 @@
                     ================================================-->
                         <input type="text" id="id_type_status" value="1" name="id_type_status" class="form-control" hidden />
     
+                        <% if (validacao) { %>
+                            <ul>
+                                <% for(i = 0; i < validacao.length; i++) { %>
+                                    <li>
+                                        <%= validacao[i].msg %>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        <% } %>    
     
                         <div class="body pb-0 pt-0">
                             <div class="row clearfix">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <label for="email_address">Nome</label>
                                     <div class="form-group">
-                                        <input type="text" id="fantasy_name" name="fantasy_name" maxlength="100" minlength="2" class="form-control" placeholder="Informe o Nome" />
+                                        <input type="text" id="fantasy_name" name="fantasy_name" value="<%= company.fantasy_name%>" maxlength="100" minlength="2" class="form-control" placeholder="Informe o Nome" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6  col-lg-6">
                                     <label for="email_address">Email</label>
                                     <div class="input-group pr-2">
-                                        <input type="text" id="email" name="email" onfocusout="verificationEmail()" maxlength="140" minlength="5" class="form-control email" placeholder="Informe o Email" />
+                                        <input type="text" id="email" name="email" value="<%= company.email%>" maxlength="140" minlength="5" class="form-control email" placeholder="Informe o Email" />
                                     </div>
                                 </div>
                             </div>
@@ -45,25 +54,25 @@
                                 <div class="col-sm-12 col-md-3  col-lg-3">
                                     <label for="email_address">CNPJ</label>
                                     <div class="input-group">
-                                        <input type="text" id="cnpj" name="cnpj" class="form-control cnpj" placeholder="Informe o CNPJ" />
+                                        <input type="text" id="cnpj" name="cnpj" value="<%= company.cnpj%>" class="form-control cnpj" placeholder="Informe o CNPJ" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3  col-lg-3">
                                     <label for="email_address">WhatsApp</label>
                                     <div class="input-group">
-                                        <input type="text" id="phone_whats" name="phone_whats" class="form-control cell-phone-home" placeholder="Informe o WhatsApp" />
+                                        <input type="text" id="phone_whats" name="phone_whats" value="<%= company.phone_whats%>" class="form-control cell-phone-home" placeholder="Informe o WhatsApp" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 col-lg-3">
                                     <label for="email_address">Celular</label>
                                     <div class="input-group">
-                                        <input type="tel" id="celular" name="phone_cell" class="form-control cell-phone-home" placeholder="Informe o Número do Celular" />
+                                        <input type="tel" id="celular" name="phone_cell" value="<%= company.phone_cell%>" class="form-control cell-phone-home" placeholder="Informe o Número do Celular" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3  col-lg-3">
                                     <label for="email_address">Telefone Fixo</label>
                                     <div class="input-group">
-                                        <input type="tel" id="telefone" name="phone_home" class="form-control cell-phone-home" placeholder="Informe o Telefone Fixo" />
+                                        <input type="tel" id="telefone" name="phone_home" value="<%= company.phone_home%>" class="form-control cell-phone-home" placeholder="Informe o Telefone Fixo" />
                                     </div>
                                 </div>
                             </div>
@@ -78,19 +87,19 @@
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <label for="email_address">Endereço</label>
                                     <div class="form-group">
-                                        <input type="text" id="address" name="address" maxlength="100" minlength="2" class="form-control" placeholder="Informe o Endereço" />
+                                        <input type="text" id="address" name="address" value="<%= company.address%>" maxlength="100" minlength="2" class="form-control" placeholder="Informe o Endereço" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-2 col-lg-2">
                                     <label for="email_address">Número</label>
                                     <div class="input-group">
-                                        <input type="text" id="number" minlength="1" name="number" class="form-control number_home" placeholder="Número ou S/N" />
+                                        <input type="text" id="number" minlength="1" name="number" value="<%= company.number%>" class="form-control number_home" placeholder="Número ou S/N" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-4  col-lg-4">
                                     <label for="email_address">CEP</label>
                                     <div class="input-group">
-                                        <input type="text" id="cep" name="zipcode" class="form-control cep" placeholder="Informe o CEP" />
+                                        <input type="text" id="cep" name="zipcode" value="<%= company.zipcode%>" class="form-control cep" placeholder="Informe o CEP" />
                                     </div>
                                 </div>
                             </div>
@@ -101,19 +110,19 @@
                                 <div class="col-sm-12 col-md-4  col-lg-4">
                                     <label for="email_address">Bairro</label>
                                     <div class="form-group">
-                                        <input type="text" id="district" name="district" maxlength="100" minlength="2" class="form-control" placeholder="Informe o Bairro" />
+                                        <input type="text" id="district" name="district" value="<%= company.district%>" maxlength="100" minlength="2" class="form-control" placeholder="Informe o Bairro" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-4  col-lg-4">
                                     <label for="email_address">Região</label>
-                                    <select class="selectpicker form-control mycols p-0" id="id_region" name="id_region" data-live-search="true" title="Informe a Cidade" data-hide-disabled="true">
+                                    <select class="selectpicker form-control mycols p-0" id="id_region" name="id_region" value="<%= company.id_region%>" data-live-search="true" title="Informe a Cidade" data-hide-disabled="true">
                                         <option value="">Informe a Região</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-4 mt-3">
                                     <label for="email_address">Complemento</label>
                                     <div class="form-group">
-                                        <input type="text" id="complement" name="complement" maxlength="100" minlength="2" class="form-control" placeholder="Complemento" />
+                                        <input type="text" id="complement" name="complement" value="<%= company.complement%>" maxlength="100" minlength="2" class="form-control" placeholder="Complemento" />
                                     </div>
                                 </div>
                             </div>
