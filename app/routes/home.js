@@ -1,6 +1,6 @@
 module.exports = function(app){
 
     app.get('/', function(req, res){
-        res.render("dashboards/createDas");
+        app.app.controllers.HomeController.dashboards(app, req, res);
     });
 };

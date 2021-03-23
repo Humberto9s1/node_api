@@ -1,8 +1,8 @@
-module.exports.companies_create = function(app, req, res){
-    res.render("companies/createCompanies",{validacao:{}, company:{}});
+module.exports.companies_create = function (app, req, res) {
+    res.render("companies/createCompanies", { validacao: {}, company: {} });
 }
 
-module.exports.companies_store = function(app, req, res){
+module.exports.companies_store = function (app, req, res) {
     var company = req.body;
 
     req.assert('fantasy_name', 'Obrigatótio o nome da Empresa').notEmpty();
@@ -18,8 +18,8 @@ module.exports.companies_store = function(app, req, res){
 
     var errors = req.validationErrors();
 
-    if(errors){
-        res.render("companies/createCompanies",{validacao : errors, company: company});
+    if (errors) {
+        res.render("companies/createCompanies", { validacao: errors, company: company });
         return;
     }
 
@@ -28,5 +28,23 @@ module.exports.companies_store = function(app, req, res){
 
     companiesModel.companyStore(company, function (error, result) {
         res.redirect('/companies');
+    });
+}
+
+module.exports.companies = function (app, req, res) {
+    var connection = app.config.dbConnection();
+    var companiesModel = new app.app.models.CompaniesModel(connection);
+
+    companiesModel.getCompanies(function (error, result) {
+        res.render("companies/createComp", { companies: result });
+    });
+}
+
+module.exports.company = function (app, req, res) {
+    var connection = app.config.dbConnection();
+    var companiesModel = new app.app.models.CompaniesModel(connection);
+
+    companiesModel.getCompanies(function (error, result) {
+        res.render("companies/createCompOne", { company: result });
     });
 }

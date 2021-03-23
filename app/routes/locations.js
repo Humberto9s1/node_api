@@ -1,5 +1,5 @@
 module.exports = function (app) {
     app.get('/locations', function (req, res) {
-        res.render("locations/createLoc");
+        app.app.controllers.LocationsController.locations(app, req, res);
     });
 };

@@ -1,5 +1,5 @@
 module.exports = function (app) {
     app.get('/employees', function (req, res) {
-        res.render("employees/createEmp");
+        app.app.controllers.EmployeesController.employees(app, req, res);
     });
 };
