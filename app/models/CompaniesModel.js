@@ -6,8 +6,9 @@ CompaniesModel.prototype.getCompanies = function(callback){
     this._connection.query('select * from companies', callback);
 };
 
+//TODO:where nao esta trazendo o resultado específico, e sim trazendo todos os registros
 CompaniesModel.prototype.getCompany = function(callback){
-    this._connection.query('select * from companies where id = 2', callback);
+    this._connection.query('select * from companies where id = 3', callback);
 };
 
 CompaniesModel.prototype.companyStore = function(company, callback) {

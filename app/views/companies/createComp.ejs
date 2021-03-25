@@ -58,7 +58,9 @@
 			<% for(i=0; i < companies.length;i++) { %>
 
 			<tr>
-				<td><%= companies[i].id %></td>
+				
+
+				<td><a href="company?id=<%= companies[i].id%>" class="noticia_titulo"><%= companies[i].id %></a></td>
 				<td><%= companies[i].fantasy_name %></td>
 				<td><%= companies[i].phone_cell %></td>
 				<td><%= companies[i].phone_whats %></td>

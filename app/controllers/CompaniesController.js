@@ -44,7 +44,10 @@ module.exports.company = function (app, req, res) {
     var connection = app.config.dbConnection();
     var companiesModel = new app.app.models.CompaniesModel(connection);
 
+    var id_company = req.query;
+
     companiesModel.getCompanies(function (error, result) {
+        console.log(result);
         res.render("companies/createCompOne", { company: result });
     });
 }
